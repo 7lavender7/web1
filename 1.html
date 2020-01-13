@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html>
 <head>
   <title>Web Developer</title>
@@ -54,9 +54,79 @@
   }
   </style>
 -->
+
+<script>
+  function nightDayHandler(self) {
+  var target = document.querySelector('body')
+  if(self.value === 'night') {
+    target.style.backgroundColor='black';
+    target.style.color='white';
+    self.value = 'day';
+
+    var alist = document.querySelectorAll('a');
+    var i=0;
+    while(i<alist.length) {
+      alist[i].style.color='powderblue';
+      i=i+1;
+    }
+
+  } else {
+    target.style.backgroundColor='white';
+    target.style.color='black';
+    self.value = 'night';
+
+    var alist = document.querySelectorAll('a');
+    var i=0;
+    while(i<alist.length) {
+      alist[i].style.color='blue';
+      i=i+1;
+    }
+  }
+}
+</script>
+
 </head>
 
 <body>
+<!--
+<input type="button" value="night" onclick="
+document.querySelector('body').style.backgroundColor='black';
+document.querySelector('body').style.color='white';
+">
+<input type="button" value="day" onclick="
+document.querySelector('body').style.backgroundColor='white';
+document.querySelector('body').style.color='black';
+">
+-->
+
+<input id="night_day" type="button" value="night" onclick="
+  if(document.querySelector('#night_day').value === 'night') {
+    document.querySelector('body').style.backgroundColor='black';
+    document.querySelector('body').style.color='white';
+    document.querySelector('#night_day').value = 'day';
+
+    var alist = document.querySelectorAll('a');
+    var i=0;
+    while(i<alist.length) {
+      alist[i].style.color='powderblue';
+      i=i+1;
+    }
+
+  } else {
+    document.querySelector('body').style.backgroundColor='white';
+    document.querySelector('body').style.color='black';
+    document.querySelector('#night_day').value = 'night';
+
+    var alist = document.querySelectorAll('a');
+    var i=0;
+    while(i<alist.length) {
+      alist[i].style.color='blue';
+      i=i+1;
+    }
+
+  }
+">
+
   <h1><font color="blue">Plan to be an Web Developer</font></h1>
 <div id="grid">
 <ol>
@@ -81,8 +151,55 @@
   <br><iframe width="560" height="315" src="https://www.youtube.com/embed/tZooW6PritE?list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   <br><br>At first I study HTML.
   <p>After that I'm going to study CSS.</p>
-  Then I will have to choose which tools best fit for me like JAVA Script or Python.
+  Then I will have to choose which tools best fit for me JAVA Script or Python.
 </div>
 </div>
+
+
+<input type="button" value="night" onclick="
+  if(this.value === 'night') {
+    document.querySelector('body').style.backgroundColor='black';
+    document.querySelector('body').style.color='white';
+    this.value = 'day';
+  } else {
+    document.querySelector('body').style.backgroundColor='white';
+    document.querySelector('body').style.color='black';
+    this.value = 'night';
+  }
+">
+
+
+<input type="button" value="night" onclick="
+<!--
+var target = document.querySelector('body')
+  if(this.value === 'night') {
+    target.style.backgroundColor='black';
+    target.style.color='white';
+    this.value = 'day';
+
+    var alist = document.querySelectorAll('a');
+    var i=0;
+    while(i<alist.length) {
+      alist[i].style.color='powderblue';
+      i=i+1;
+    }
+
+  } else {
+    target.style.backgroundColor='white';
+    target.style.color='black';
+    this.value = 'night';
+
+    var alist = document.querySelectorAll('a');
+    var i=0;
+    while(i<alist.length) {
+      alist[i].style.color='blue';
+      i=i+1;
+    }
+  }
+-->
+nightDayHandler();
+">
+
+
 </body>
 </html>
