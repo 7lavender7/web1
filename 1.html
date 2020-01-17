@@ -56,33 +56,92 @@
 -->
 
 <script>
-  function nightDayHandler(self) {
-  var target = document.querySelector('body')
-  if(self.value === 'night') {
-    target.style.backgroundColor='black';
-    target.style.color='white';
-    self.value = 'day';
-
+  function LinkSetColor(color) {
     var alist = document.querySelectorAll('a');
     var i=0;
     while(i<alist.length) {
       alist[i].style.color='powderblue';
       i=i+1;
     }
+  }
 
+  var Body = {
+    setColor:function(color) {
+      document.querySelector('body').style.color='color';
+    },
+    setBackgroundColor:function(color) {
+      document.querySelector('body').style.backgroundColor='color';
+    }
+  }
+
+  var Links={
+    setColor:function(color) {
+      var alist = document.querySelectorAll('a');
+      var i=0;
+      while(i<alist.length) {
+        alist[i].style.color='color';
+        i=i+1;
+      }
+    }
+  }
+
+  function nightDayHandler(self) {
+  if(self.value === 'night') {
+    Body.setBackgroundColor('black');
+    Body.setColor('white');
+    self.value = 'day';
+    Links.setColor('powderblue');
   } else {
-    target.style.backgroundColor='white';
-    target.style.color='black';
+    Body.setBackgroundColor('white');
+    Body.setColor('black');
     self.value = 'night';
+    Links.setColor('blue')
 
+
+/*
+  function BodySetColor(color) {
+    document.querySelector('body').style.color='color';
+  }
+
+  function BodySetBackgroundColor(color) {
+    document.querySelector('body').style.backgroundColor='color';
+  }
+
+  function nightDayHandler(self) {
+  /* var target = document.querySelector('body'); */ // 객체의 활용
+/*  if(self.value === 'night') { //this.value일 경우 전역객체(즉,윈도우)를 가르킴
+    /*target.style.backgroundColor='black';*/ // 객체의 활용
+/*    Body.setBackgroundColor('black');
+    /* target.style.color='white'; *///로직에 이름 부여
+    /*BodySetColor('white');*/ // 객체의 활용
+/*    Body.setColor('white');
+    self.value = 'day';
+/*
+    var alist = document.querySelectorAll('a');
+    var i=0;
+    while(i<alist.length) {
+      alist[i].style.color='powderblue';
+      i=i+1;
+    }
+*/
+/*      Links.setColor('powderblue')
+} else { */
+    /*target.style.backgroundColor='white';*/ // 객체의 활용
+/*    Body.setBackgroundColor('white');
+    /* target.style.color='black'; */
+    /*BodySetBackgroundColor('black');*/ // 객체의 활용
+/*    Body.setColor('black');
+    self.value = 'night';
+/*
     var alist = document.querySelectorAll('a');
     var i=0;
     while(i<alist.length) {
       alist[i].style.color='blue';
       i=i+1;
+*/
+/*      Links.setColor('blue')*
     }
   }
-}
 </script>
 
 </head>
@@ -157,6 +216,7 @@ document.querySelector('body').style.color='black';
 
 
 <input type="button" value="night" onclick="
+/*
   if(this.value === 'night') {
     document.querySelector('body').style.backgroundColor='black';
     document.querySelector('body').style.color='white';
@@ -166,12 +226,15 @@ document.querySelector('body').style.color='black';
     document.querySelector('body').style.color='black';
     this.value = 'night';
   }
+*/
+nightDayHandler();
 ">
 
 
+
 <input type="button" value="night" onclick="
-<!--
-var target = document.querySelector('body')
+/*
+var target = document.querySelector('body');
   if(this.value === 'night') {
     target.style.backgroundColor='black';
     target.style.color='white';
@@ -196,10 +259,13 @@ var target = document.querySelector('body')
       i=i+1;
     }
   }
--->
+*/
 nightDayHandler();
 ">
 
+<input type="button" value="night" onclick="
+nightDayHandler();
+">
 
 </body>
 </html>

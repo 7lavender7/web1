@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+  </style>
+</head>
+<body>
+  <h1>Object</h1>
+  <h2>Create</h2>
+  <script>
+    var Life={
+      "희" : "Hapiness",
+      "노" : "anger",
+      "애" : "sorrow",
+      "락" : "pleasure"
+    }
+    document.write("희:"+Life.희+"<br>");
+    document.write("노:"+Life.노+"<br>");
+    document.write("애:"+Life.애+"<br>");
+    document.write("락:"+Life.락+"<br>");
+    Life.Full_Name="희노애락";
+    document.write("Full_Name:"+Life.Full_Name+"<br>");
+    Life["Full Name"]="희노애락"; //띄워쓰기가 들어간 메소드 추가
+    document.write("Full Name:"+Life["Full Name"]+"<br>");
+  </script>
+
+  <h2>Iterate</h2>
+  <script>
+    for(var key in Life) {
+      document.write(key+':'+Life[key]+'<br>');
+    }
+  </script>
+
+  <h2>Property & Method</h2>
+  <script> // 이하 function shwAll() 과 동일
+/*    Life.showAll = function() {
+      for(var key in Life) {
+        document.write(key+':'+Life[key]+'<br>');
+      }
+    }
+    Life.showAll();
+*/ //객체의 이름이 변경되면 값을 못 가져오는 경우가 발생(this 사용)
+      Life.showAll = function() {
+      for(var key in this) {
+        document.write(key+':'+this[key]+'<br>');
+      }
+    }
+    Life.showAll();
+  </script>
+
+</body>
+</html>
